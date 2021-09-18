@@ -25,6 +25,11 @@ export class Cart {
     this.recalculate();
   }
 
+  updateQuantityEvent(product: Product, event: Event) {
+    let quantity = Number((event.target as HTMLInputElement).value);
+    this.updateQuantity(product, quantity);
+  }
+
   removeLine(id: number) {
     let index = this.lines.findIndex(line => line.product.id == id);
     this.lines.splice(index, 1);
