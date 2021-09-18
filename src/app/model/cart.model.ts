@@ -30,7 +30,7 @@ export class Cart {
     this.updateQuantity(product, quantity);
   }
 
-  removeLine(id: number) {
+  removeLine(id: number | undefined) {
     let index = this.lines.findIndex(line => line.product.id == id);
     this.lines.splice(index, 1);
     this.recalculate();
