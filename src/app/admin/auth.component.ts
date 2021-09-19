@@ -6,9 +6,9 @@ import {NgForm} from "@angular/forms";
   templateUrl: "auth.component.html"
 })
 export class AuthComponent {
-  public username: string;
-  public password: string;
-  public errorMessage: string;
+  public username: string | undefined;
+  public password: string | undefined;
+  public errorMessage: string | undefined;
 
   constructor(private router: Router) {}
 
