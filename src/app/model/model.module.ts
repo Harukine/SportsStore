@@ -14,7 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
     StaticDataSource,
     Cart,
     Order, OrderRepository,
-    { provide: StaticDataSource, useClass: RestDataSource},
+    RestDataSource
   ]
 })
 export class ModelModule {
