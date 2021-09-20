@@ -44,7 +44,7 @@ export class RestDataSource {
     return this.http.put<Product>(`${this.baseUrl}products/${product.id}`, product, this.getOptions());
   }
 
-  deleteProduct(id: number): Observable<Product> {
+  deleteProduct(id: number | undefined): Observable<Product> {
     return this.http.delete<Product>(`${this.baseUrl}products/${id}`, this.getOptions());
   }
 
