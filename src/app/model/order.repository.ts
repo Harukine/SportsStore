@@ -13,7 +13,7 @@ export class OrderRepository {
   }
 
   loadOrders() {
-    this.loaded = false;
+    this.loaded = true;
     this.dataSource.getOrders()
       .subscribe(orders => this.orders = orders);
   }
@@ -36,7 +36,7 @@ export class OrderRepository {
     });
   }
 
-  deleteOrder(id: number) {
+  deleteOrder(id: number | null | undefined) {
     this.dataSource.deleteOrder(id).subscribe(order => {
       this.orders.splice(this.orders.findIndex(o => id == o.id), 1);
     })
