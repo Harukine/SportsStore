@@ -22,7 +22,7 @@ export class OrderTableComponent {
     this.repository.updateOrder(order);
   }
 
-  delete(id: number) {
+  delete(id: number | null | undefined) {
     this.repository.deleteOrder(id);
   }
 }
