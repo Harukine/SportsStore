@@ -9,6 +9,8 @@ import {StoreComponent} from "./store/store.component";
 import {CartDetailComponent} from "./store/cartDetail.component";
 import {CheckoutComponent} from "./store/checkout.component";
 import {StoreFirstGuard} from "./storeFirst.guard";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,13 @@ import {StoreFirstGuard} from "./storeFirst.guard";
         canActivate: [StoreFirstGuard]
       },
       {path: "**", redirectTo: "/store"}
-    ])
+    ]),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [StoreFirstGuard],
   bootstrap: [AppComponent]
