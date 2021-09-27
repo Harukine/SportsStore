@@ -3,7 +3,7 @@ const https = require("https");
 const fs = require("fs");
 const history = require("connect-history-api-fallback");
 const jsonServer = require("json-server");
-const bodyParser = require("json-server");
+const bodyParser = require("body-parser");
 
 const auth = require("./authMiddleware");
 const router = jsonServer.router("serverdata.json")
